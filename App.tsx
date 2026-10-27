@@ -31,5 +31,6 @@ async function runCheck(): Promise<Row[]> {
       },
     });
     const event = await Calendar.getEventAsync(id);
+    const got = event.recurrenceRule?.daysOfTheWeek?.[0]?.dayOfTheWeek;
   }
 }
