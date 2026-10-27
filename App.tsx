@@ -9,3 +9,10 @@ import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 const NAMES = ['', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 type Row = { sent: number; got: number | undefined; lands: string; ok: boolean };
+
+async function runCheck(): Promise<Row[]> {
+  const { status } = await Calendar.requestCalendarPermissionsAsync();
+  if (status !== 'granted') {
+    throw new Error('calendar permission not granted');
+  }
+}
