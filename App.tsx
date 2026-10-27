@@ -78,3 +78,13 @@ export default function App() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { paddingTop: 80, paddingHorizontal: 16, gap: 12 },
+  title: { fontSize: 18, fontWeight: '600' },
+  sub: { color: '#555' },
+  table: { gap: 6, marginTop: 8 },
+  head: { fontWeight: '600' },
+  good: { color: '#1a7f37', fontFamily: 'Menlo', fontSize: 12 },
+  bad: { color: '#b3261e', fontFamily: 'Menlo', fontSize: 12 },
+});
