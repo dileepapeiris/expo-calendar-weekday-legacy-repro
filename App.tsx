@@ -64,6 +64,17 @@ export default function App() {
       <Text style={styles.sub}>Docs: Sunday = 1 … Saturday = 7</Text>
       <Button title="test test" onPress={run} />
       {error && <Text style={styles.bad}>{error}</Text>}
+      {rows && (
+        <View style={styles.table}>
+          <Text style={styles.head}>sent → read back → first occurrence lands on</Text>
+          {rows.map((r) => (
+            <Text key={r.sent} style={r.ok ? styles.good : styles.bad}>
+              {r.sent} {NAMES[r.sent]} → {String(r.got)} {NAMES[r.got ?? 0] ?? '?'} → {r.lands || 'none'}{' '}
+              {r.ok ? 'OK' : 'WRONG'}
+            </Text>
+          ))}
+        </View>
+      )}
     </ScrollView>
   );
 }
