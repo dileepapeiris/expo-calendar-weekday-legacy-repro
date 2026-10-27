@@ -46,5 +46,5 @@ async function runCheck(): Promise<Row[]> {
     rows.push({ sent, got, lands, ok: got === sent && lands === NAMES[sent] });
     await Calendar.deleteEventAsync(id, { futureEvents: true });
   }
-  }
+  return rows;
 }
