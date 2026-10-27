@@ -32,5 +32,16 @@ async function runCheck(): Promise<Row[]> {
     });
     const event = await Calendar.getEventAsync(id);
     const got = event.recurrenceRule?.daysOfTheWeek?.[0]?.dayOfTheWeek;
+    // The week after the start date (Mon 11/02 .. Sun 11/08) holds exactly one occurrence,
+    // on the weekday EventKit really stored. The start date itself (Sun 11/01) is outside it.
+    const occurrences = await Calendar.getEventsAsync(
+      [calendar.id],
+      new Date('2026-11-02T00:00:00'),
+      new Date('2026-11-09T00:00:00')
+    );
+    const mine = occurrences.filter((e) => e.title === `test test ${NAMES[sent]}`);
+    const lands = mine
+      .map((e) => new Date(e.startDate).toLocaleDateString('en-US', { weekday: 'long' }))
+      .join(', ');
   }
 }
