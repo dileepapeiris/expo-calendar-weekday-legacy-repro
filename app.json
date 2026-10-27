@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "expo-calendar-weekday-legacy-repro",
+    "slug": "expo-calendar-weekday-legacy-repro",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.dileepapeiris.weekdaylegacyrepro"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "dev.dileepapeiris.weekdaylegacyrepro"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "This repro writes one recurring event to check the weekday mapping."
+        }
+      ]
+    ]
+  }
+}
