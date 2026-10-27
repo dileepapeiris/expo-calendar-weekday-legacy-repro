@@ -1,3 +1,7 @@
 import * as Calendar from 'expo-calendar/legacy';
 import { useEffect, useState } from 'react';
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+
+// Repro for https://github.com/expo/expo/issues/52319 with the legacy API.
+// For every documented DayOfTheWeek value (Sunday = 1 ... Saturday = 7) create a weekly
+// event, read the rule back, and check which weekday the first occurrence lands on.
