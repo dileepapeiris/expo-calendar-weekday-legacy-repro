@@ -53,6 +53,10 @@ export default function App() {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const run = () => runCheck().then(setRows).catch((e) => setError(String(e)));
+  useEffect(() => {
+    const t = setTimeout(run, 500);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
