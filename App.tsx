@@ -7,3 +7,5 @@ import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 // event, read the rule back, and check which weekday the first occurrence lands on.
 
 const NAMES = ['', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+type Row = { sent: number; got: number | undefined; lands: string; ok: boolean };
