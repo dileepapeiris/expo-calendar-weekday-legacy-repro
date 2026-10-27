@@ -6,3 +6,12 @@ https://github.com/dileepapeiris/expo-calendar-weekday-class-repro.
 
 Versions: Expo SDK 58, `expo-calendar` 58.0.6, React Native 0.88, iOS 26.5 simulator (iPhone 17).
 
+## Run
+
+```sh
+npm install
+npx expo run:ios      # development build, iOS simulator
+```
+
+Grant calendar access when asked. The check runs on launch, the **test test** button runs it again.
+
