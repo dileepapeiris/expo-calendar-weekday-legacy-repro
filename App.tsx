@@ -48,3 +48,18 @@ async function runCheck(): Promise<Row[]> {
   }
   return rows;
 }
+
+export default function App() {
+  const [rows, setRows] = useState<Row[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const run = () => runCheck().then(setRows).catch((e) => setError(String(e)));
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>expo-calendar legacy API: dayOfTheWeek</Text>
+      <Text style={styles.sub}>Docs: Sunday = 1 … Saturday = 7</Text>
+      <Button title="test test" onPress={run} />
+      {error && <Text style={styles.bad}>{error}</Text>}
+    </ScrollView>
+  );
+}
