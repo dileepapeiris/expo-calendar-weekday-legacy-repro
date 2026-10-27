@@ -26,3 +26,20 @@ For every value of the documented `DayOfTheWeek` enum (`Sunday = 1` … `Saturda
    single occurrence lands on,
 4. deletes the event again.
 
+## Result
+
+![legacy result](media/ios-legacy-result.png)
+
+| sent (docs) | read back | occurrence lands on |
+| --- | --- | --- |
+| 1 Sunday | 2 Monday | Monday |
+| 2 Monday | 3 Tuesday | Tuesday |
+| 3 Tuesday | 4 Wednesday | Wednesday |
+| 4 Wednesday | 5 Thursday | Thursday |
+| 5 Thursday | 6 Friday | Friday |
+| 6 Friday | 7 Saturday | Saturday |
+| 7 Saturday | 1 Sunday | Sunday |
+
+Every value is shifted by one day. The read-back value and the real occurrence agree with each other,
+so the rule is stored on the wrong weekday; this is not only a display problem.
+
