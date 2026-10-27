@@ -43,3 +43,11 @@ For every value of the documented `DayOfTheWeek` enum (`Sunday = 1` … `Saturda
 Every value is shifted by one day. The read-back value and the real occurrence agree with each other,
 so the rule is stored on the wrong weekday; this is not only a display problem.
 
+## Cause
+
+`packages/expo-calendar/ios/Records/RecurrenceRuleRecords.swift` declares the input enum as
+`monday = 1 … sunday = 7` and maps each case by name to `EKWeekday`. The TypeScript enum, the docs
+and `EKWeekday` itself use `sunday = 1 … saturday = 7`, and the read path returns the `EKWeekday`
+raw value. So the integer `2` (Monday in the docs) becomes `.tuesday` on the way in and comes back
+as `3`. Both the legacy and the class-based API go through the same `createRecurrenceRule` helper.
+Android is not affected: its RRULE builder does not support `daysOfTheWeek`.
