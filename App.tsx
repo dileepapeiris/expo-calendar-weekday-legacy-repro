@@ -17,4 +17,8 @@ async function runCheck(): Promise<Row[]> {
   }
   const calendar = await Calendar.getDefaultCalendarAsync();
   const rows: Row[] = [];
+  for (let sent = 1; sent <= 7; sent++) {
+    const start = new Date('2026-11-01T10:00:00'); // a Sunday
+    const end = new Date('2026-11-01T11:00:00');
+  }
 }
