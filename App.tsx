@@ -44,5 +44,7 @@ async function runCheck(): Promise<Row[]> {
       .map((e) => new Date(e.startDate).toLocaleDateString('en-US', { weekday: 'long' }))
       .join(', ');
     rows.push({ sent, got, lands, ok: got === sent && lands === NAMES[sent] });
+    await Calendar.deleteEventAsync(id, { futureEvents: true });
+  }
   }
 }
