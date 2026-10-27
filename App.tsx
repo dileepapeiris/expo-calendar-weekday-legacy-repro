@@ -20,5 +20,16 @@ async function runCheck(): Promise<Row[]> {
   for (let sent = 1; sent <= 7; sent++) {
     const start = new Date('2026-11-01T10:00:00'); // a Sunday
     const end = new Date('2026-11-01T11:00:00');
+    const id = await Calendar.createEventAsync(calendar.id, {
+      title: `test test ${NAMES[sent]}`,
+      startDate: start,
+      endDate: end,
+      recurrenceRule: {
+        frequency: Calendar.Frequency.WEEKLY,
+        interval: 1,
+        daysOfTheWeek: [{ dayOfTheWeek: sent, weekNumber: 0 }],
+      },
+    });
+    const event = await Calendar.getEventAsync(id);
   }
 }
