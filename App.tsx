@@ -15,4 +15,6 @@ async function runCheck(): Promise<Row[]> {
   if (status !== 'granted') {
     throw new Error('calendar permission not granted');
   }
+  const calendar = await Calendar.getDefaultCalendarAsync();
+  const rows: Row[] = [];
 }
